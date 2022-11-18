@@ -1,5 +1,12 @@
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var options = {
+    "password_length" : prompt("How many characters do you want in your password, choose between 10 and 64."),
+    "sc" : confirm("Do you want special character in your password?"),
+    "nc" : confirm("Do you want number in your password?"),
+    "uc" : confirm("Do you want uppercase in your password?"),
+    "lc" : confirm("Do you want lowercase in your password?"),
+    }
 }
 
 // Function for getting a random element from an array
