@@ -20,7 +20,7 @@ function getPasswordOptions() {
     else if (i == "nc" && options[i])
       {final_character_set = final_character_set.concat(numericCharacters)}
     else if (i == "uc" && options[i])
-      {final_character_set = final_character_set.concat(upeerCasedCharacters)}
+      {final_character_set = final_character_set.concat(upperCasedCharacters)}
     else if (i == "lc" && options[i])
       {final_character_set = final_character_set.concat(lowerCasedCharacters)}
   }
@@ -28,13 +28,17 @@ function getPasswordOptions() {
   return [final_character_set, parseInt(options["password_length"])]
 }
 
-// Function for getting a random element from an array
-function getRandom(arr) {
-
-}
-
 // Function to generate password with user input
 function generatePassword() {
+  set_and_pwd_len = getPasswordOptions()
+
+  var password_element = ''
+
+  for (var i=0; i<set_and_pwd_len[1]; i++){
+    element = set_and_pwd_len[0][Math.floor(Math.random()*set_and_pwd_len[0].length)];
+    password_element += element
+  };
+
   return password_element
 }
 
