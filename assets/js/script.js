@@ -39,8 +39,11 @@ function getPasswordOptions() {
 function generatePassword() {
   set_and_pwd_len = getPasswordOptions()
 
+  // create an empty string variable to save the generated password
   var password_element = ''
 
+  // using the chosen length for the for loops, each loop randomly pick a character from the final character set.
+  // Each character will then attached to the password_element variable and form the final password.
   for (var i=0; i<set_and_pwd_len[1]; i++){
     element = set_and_pwd_len[0][Math.floor(Math.random()*set_and_pwd_len[0].length)];
     password_element += element
