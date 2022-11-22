@@ -1,17 +1,23 @@
 // Function to prompt user for password options
 function getPasswordOptions() {
+
+  // Prompt user to select the password length and use while loop to make input is numeric and between 10 and 64
+  var password_length = prompt("How many characters do you want in your password, choose between 10 and 64.");
   
-  //   var password_length = {  }    = only proceed when numeric between 10 and 64 is provided, if not stay in loop and print (try again)
+  while (password_length < 10 || password_length > 64 || isNaN(parseInt(password_length))) {
+    var password_length = prompt("You need to give number between 10-64!");
+  }
 
-
+  // Ask user to confirm the character sets to use
   var options = {
-    "password_length" : prompt("How many characters do you want in your password, choose between 10 and 64."),
     "sc" : confirm("Do you want special character in your password?"),
     "nc" : confirm("Do you want number in your password?"),
     "uc" : confirm("Do you want uppercase in your password?"),
     "lc" : confirm("Do you want lowercase in your password?"),
     }
 
+
+  // Use user's confirm to concat the selected set to one final set
   final_character_set = []
 
   for (const i in options) {
@@ -25,7 +31,8 @@ function getPasswordOptions() {
       {final_character_set = final_character_set.concat(lowerCasedCharacters)}
   }
 
-  return [final_character_set, parseInt(options["password_length"])]
+  // Return the result in a list with set and password length
+  return [final_character_set, parseInt(password_length)]
 }
 
 // Function to generate password with user input
